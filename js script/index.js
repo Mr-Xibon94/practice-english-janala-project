@@ -19,6 +19,18 @@ const displayLevelWords = (words) => {
     const wordContainer = document.getElementById("word-container");
     wordContainer.innerHTML = ""; 
 
+    if(words.length == 0) {
+        wordContainer.innerHTML = `
+        <div class=" text-center bg-sky-100 col-span-full rounded-xl py-10 space-y-6 font-bangla">
+            <img class="mx-auto" src="./assets/alert-error.png" alt="">
+            <p class="text-xl font-medium text-gray-400">
+                এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
+            </p>
+            <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
+        </div>
+        `;
+    }
+
     // get into each word wordContainer 
     for(let word of words) {
         // create word div 
