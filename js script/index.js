@@ -48,6 +48,12 @@ const wordDetails = async (wordId) => {
 //     ],
 //     "id": 5
 // }
+const creatElements = (arr) => {
+    const htmlElements = arr.map((el) => `<span class="btn">${el}</span>`);
+
+    return htmlElements.join(" ");
+
+}
 
 function displayWordDetails(word) {
     console.log(word);
@@ -66,9 +72,7 @@ function displayWordDetails(word) {
             <div>
                 <p class="font-semibold text-base mb-2">সমার্থক শব্দ গুলো</p>
                 <div class="flex gap-2">
-                    <a href="" class="btn">${word.synonyms[0]}</a>
-                    <a href="" class="btn">${word.synonyms[1]}</a>
-                    <a href="" class="btn">${word.synonyms[2]}</a>
+                    ${creatElements(word.synonyms)}
                 </div>
             </div>
         </div>
