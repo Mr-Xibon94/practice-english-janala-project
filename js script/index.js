@@ -85,7 +85,7 @@ function displayWordDetails(word) {
             </div>
             <div>
                 <p class="font-semibold text-base mb-2">সমার্থক শব্দ গুলো</p>
-                <div class="flex gap-2">
+                <div class="flex flex flex-wrap gap-2">
                     ${creatElements(word.synonyms)}
                 </div>
             </div>
