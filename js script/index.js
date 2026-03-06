@@ -1,3 +1,10 @@
+// to lessen vocabulary 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const loadLessons = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all") //promise of response
         .then((res) => res.json()) //promise of json data
@@ -125,7 +132,7 @@ const displayLevelWords = (words) => {
             <h2 class="font-bold text-2xl font-bangla">"${word.meaning ? word.meaning : "No Meaning Found"} / ${word.pronunciation ? word.pronunciation : "No pronuncitaion found"}"</h2>
             <div class="flex justify-between items-center">
                 <button onclick="wordDetails(${word.id})" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
-                <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
+                <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
         `;
